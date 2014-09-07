@@ -14,8 +14,6 @@
 </head>
 <body>
 
-<%= yield %>
-
 <% flash.each do |key, value| %>
 	<div class='flash' id='<%= key %>'>
 		<%= value %>
@@ -28,6 +26,8 @@
 		<li><%= link_to "Sign in", signin_path %></li>
 	</ul>
 </nav>
+
+<%= yield %>
 
 </body>
 </html>
