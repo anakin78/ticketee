@@ -6,6 +6,7 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
   pool: 5
   username: tedesco
   timeout: 5000
