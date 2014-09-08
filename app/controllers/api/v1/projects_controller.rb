@@ -6,7 +6,8 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 	def create
 		project = Project.new(params[:project])
 		if project.save
-			respond_with(project, :location => api_v1_project_path(project)) <co id="ch13_485_1"/>
+			respond_with(project, :location => api_v1_project_path(project))
+		<co id="ch13_485_1"/>
 		else
 		respond_with(project)
 		end
