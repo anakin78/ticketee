@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140907214353) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140907214353) do
     t.integer  "user_id"
   end
 
-  add_index "tickets", ["project_id"], name: "index_tickets_on_project_id"
-  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
+  add_index "tickets", ["project_id"], name: "index_tickets_on_project_id", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
