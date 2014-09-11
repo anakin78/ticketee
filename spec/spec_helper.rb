@@ -58,4 +58,9 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/v/3-0/docs
   config.infer_spec_type_from_file_location!
+
+  #By running this command, it exposes the current running example via the named 
+  #helper method. Since we're using extension gem Capybara in this tutorial, this 
+  #config option is used to maintain compatibility between different versions of Rspec.
+  config.expose_current_running_example_as :example
 end
