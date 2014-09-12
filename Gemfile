@@ -49,3 +49,5 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use rails_12factor
 gem 'rails_12factor'
+# Use cancan
+gem 'cancan', '~> 1.6.10'
