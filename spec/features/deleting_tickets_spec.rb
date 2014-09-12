@@ -25,4 +25,5 @@ feature 'Deleting tickets' do
 		expect(page).to have_content("Ticket has been deleted.")
 		expect(page.current_url).to eq(project_url(project))
 	end
+
 end
