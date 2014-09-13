@@ -49,5 +49,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use rails_12factor
 gem 'rails_12factor'
-# Use cancan
+
+# Use CanCan
 gem 'cancan', '~> 1.6.10'
+
+# Use CarrierWave
+gem 'carrierwave', '0.8.0'
+
