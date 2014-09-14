@@ -56,3 +56,11 @@ gem 'cancan', '~> 1.6.10'
 # Use CarrierWave
 gem 'carrierwave', '0.8.0'
 
+# Use selenium-webdriver
+gem 'selenium-webdriver'
+
+# Use databse_cleaner to implement truncation in the database tests allowing tests with selenium-webdriver
+gem 'database_cleaner', '1.0.1'
+
+gem 'jquery-turbolinks'
+
