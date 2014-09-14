@@ -1,20 +1,4 @@
 Rails.application.routes.draw do
-  
-  namespace :api do
-    namespace :v1 do
-      resources :projects
-    end
-  end
-
-  namespace :admin do
-    root :to => "base#index"
-    resources :users do
-      resources :permissions
-
-      put "permissions", to: "permissions#set",
-                        as: "set_permissions"
-      end
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -70,6 +54,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
   root "projects#index"
 
   resources :projects do
@@ -89,5 +74,20 @@ Rails.application.routes.draw do
 
   resources :files
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects
+    end
+  end
 
-end
+  namespace :admin do
+    root :to => "base#index"
+    resources :users do
+      resources :permissions
+      put "permissions", to: "permissions#set",
+                        as: "set_permissions"
+    end
+    resources :states
+  end
+
+end  
