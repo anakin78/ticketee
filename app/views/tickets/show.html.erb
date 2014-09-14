@@ -1,6 +1,7 @@
 <div id='ticket'>
 <h2><%= @ticket.title %></h2>
 	<span id='author'>Created by <%= @ticket.user.email %></span>
+	<%= render @ticket.state if @ticket.state %>
 <%= simple_format(@ticket.description) %>
 <% if @ticket.assets.present? %>
 	<h3>Attached Files</h3>
@@ -16,7 +17,6 @@
 		</div>
 <% end %>
 
-
 <%= authorized?("edit tickets", @project) do %>
 	<%= link_to "Edit Ticket", [:edit, @project, @ticket] %>
 <% end %>
@@ -26,12 +26,13 @@
 <% end %>
 	<h3>Comments</h3>
 	<div id='comments'>
-		<% if @ticket.comments.exists? %> <co id="ch10_190_1"/>
+		<% if @ticket.comments.exists? %>
 			<%= render @ticket.comments.select(&:persisted?) %>
 		<% else %>
 			There are no comments for this ticket.
 		<% end %>
 	</div>
+<h3>New comment</h3>
 <%= render "comments/form" %>
 </div>
 

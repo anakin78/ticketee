@@ -5,6 +5,7 @@ feature "Creating comments" do
 	let!(:user) { FactoryGirl.create(:user) }
 	let!(:project) { FactoryGirl.create(:project) }
 	let!(:ticket) { FactoryGirl.create(:ticket, project: project, user: user) }
+	let!(:state) { FactoryGirl.create(:state, name: "Open")}
 	
 	before do
 		define_permission!(user, "view", project)
@@ -33,4 +34,18 @@ feature "Creating comments" do
 		page.should have_content("Comment has not been created.")
 		page.should have_content("Text can't be blank")
 	end
+
+	scenario "Changing a ticket's state" do
+		click_link ticket.title
+		fill_in "Text", with: "This is a real issue"
+		select "Open", from: "State"
+		
+		click_button "Create Comment"
+		page.should have_content("Comment has been created.")
+		
+		within("#ticket .state") do
+			page.should have_content("Open")
+		end
+	end
+
 end
