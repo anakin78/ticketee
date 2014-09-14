@@ -15,6 +15,10 @@ class TicketsController < ApplicationController
 		@ticket.assets.build
 	end
 
+	def show
+		@comment = @ticket.comments.build
+	end
+
 	def create
 		@ticket = @project.tickets.build(ticket_params)
 		@ticket.user = current_user
