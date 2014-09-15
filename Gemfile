@@ -64,3 +64,4 @@ gem 'database_cleaner', '1.0.1'
 
 gem 'jquery-turbolinks'
 
+gem 'devise'
