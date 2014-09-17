@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   	before_action :set_user, only: [:show, :edit, :update, :destroy]
+  	before_filter :authenticate_user!
 
   	def new
 		@user = User.new
   	end
-
+=begin
   	def create
 		@user = User.new(user_params)
+		p user_params
 		if @user.save
 			session[:user_id] = @user.id
 			flash[:notice] = "You have signed up successfully."
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 			render :new
 		end
 	end
-
+=end
   	def show
   	end
 
@@ -38,8 +40,10 @@ class UsersController < ApplicationController
   		@user = User.find(params[:id])
   	end
 
+=begin
 	def user_params
 		params.require(:user).permit(:name,:email,:password, :password_confirmation)
 	end
-	
+=end
+
 end

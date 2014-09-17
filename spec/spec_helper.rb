@@ -63,4 +63,7 @@ RSpec.configure do |config|
   #helper method. Since we're using extension gem Capybara in this tutorial, this 
   #config option is used to maintain compatibility between different versions of Rspec.
   config.expose_current_running_example_as :example
+
+  #Add rack-test methods to all tests
+  config.include Rack::Test::Methods
 end

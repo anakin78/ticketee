@@ -1,6 +1,6 @@
 class FilesController < ApplicationController
 	
-	#before_filter :require_signin!
+	before_filter :require_signin!
 	
 	def new
 		@ticket = Ticket.new
